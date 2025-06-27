@@ -1,33 +1,31 @@
-# tray-challenge-app
+# Sales APP – Setup
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto é uma aplicação Vue 3 desenvolvida para fins de teste técnico. Ela utiliza Docker para facilitar a execução
+e builda o arquivo `.env` automaticamente com Dockerize.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ✅ Como rodar o projeto localmente
 
-## Type Support for `.vue` Imports in TS
+1. **Clone o repositório:**
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+   ```bash
+   git clone https://github.com/macckenzie/tray-challenge-app.git
+   cd tray-challenge-app
 
-## Customize configuration
+2. **Suba os containers:**
+    * A aplicação estará disponível em localhost:80 com todas as dependências instaladas
+   ```bash
+   docker-compose up --build -d
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## Detalhes importantes
 
-```sh
-npm install
-```
+- A tabela `users` foi reaproveitada para escalabilidade, utilizando relacionamentos.
+- Um usuário pode ser um vendedor 1:1 e administrador ao mesmo tempo.
+- A aplicação não possui login de usuários (não deu tempo).
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Créditos
+[Nathan Mendes](https://github.com/macckenzie)
