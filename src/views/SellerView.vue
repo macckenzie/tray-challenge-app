@@ -106,7 +106,6 @@ onMounted(async () => {
   <section class="seller-view">
     <h1>Vendedores</h1>
 
-    {{ deleteModal }}
     <table>
       <thead>
       <tr>
