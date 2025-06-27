@@ -12,6 +12,7 @@ interface Sale {
 
 interface Seller {
   id: number
+  user_id: number
   name: string
   email: string
   commission_rate: number
@@ -73,6 +74,7 @@ async function listSellers() {
     const response = await http.get('sellers')
     sellers.value = response.data.map((seller: any) => ({
       id: seller.seller_id,
+      user_id: seller.user_id,
       name: seller.user_name,
       email: seller.user_email,
       commission_rate: seller.commission_rate,
@@ -91,6 +93,19 @@ async function getSellerSales(seller: Seller) {
       amount: item.amount,
       date: item.sold_at
     }));
+  } catch (error) {
+    console.error(`Erro ao buscar vendas do vendedor ${seller.id}:`, error);
+    seller.sales = [];
+  }
+}
+
+async function sendSalesEmail(seller: Seller) {
+  try {
+    await http.post(`users/${seller.user_id}/send-daily-sales-email`, {
+      date: dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+    }).then(() => {
+      alert('E-mail enviado');
+    })
   } catch (error) {
     console.error(`Erro ao buscar vendas do vendedor ${seller.id}:`, error);
     seller.sales = [];
@@ -127,6 +142,9 @@ onMounted(async () => {
             </button>
             <button @click="editModal.show = true; editModal.seller = seller" title="Alterar vendedor">
               <font-awesome-icon icon="fa-pen"/>
+            </button>
+            <button @click="sendSalesEmail(seller)" title="Enviar e-mail de vendas">
+              <font-awesome-icon icon="fa-envelope"/>
             </button>
             <button @click="deleteModal.show = true; deleteModal.seller = seller" title="Apagar vendedor">
               <font-awesome-icon icon="fa-trash" style="color: red"/>
