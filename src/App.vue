@@ -5,6 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
     <header>
       <nav>
+        <RouterLink to="/" exact-active-class="active">Home</RouterLink>
         <RouterLink to="/sellers" exact-active-class="active">Vendedores</RouterLink>
         <RouterLink to="/sales" exact-active-class="active">Vendas</RouterLink>
       </nav>
