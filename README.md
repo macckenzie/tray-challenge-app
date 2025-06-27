@@ -25,6 +25,7 @@ e builda o arquivo `.env` automaticamente com Dockerize.
 - A tabela `users` foi reaproveitada para escalabilidade, utilizando relacionamentos.
 - Um usuário pode ser um vendedor 1:1 e administrador ao mesmo tempo.
 - A aplicação não possui login de usuários (não deu tempo).
+- [Configurar a API - Github](https://github.com/macckenzie/tray-challenge-api)
 
 
 ## Créditos
