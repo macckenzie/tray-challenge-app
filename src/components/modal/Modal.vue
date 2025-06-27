@@ -10,7 +10,6 @@
           <button type="button" class="btn-close" @click="closeModal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
-          <br>
           <slot name="content"></slot>
         </div>
         <div class="modal-footer">
